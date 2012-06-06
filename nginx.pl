@@ -14,13 +14,13 @@ my $stable = {
     major  => '1',
     minor  => '2',
     patch  => '2',
-    sha256 => '994ad97cbf6f7045f95ea9d6d401aad1e95766671e402c48af85aba5235a2dd7',
+    sha256 => '4fb69411f6c3ebb5818005955a085e891e77b2d8',
 };
 my $devel  = {
     major  => '1',
     minor  => '3',
     patch  => '2',
-    sha256 => '9b30a6f67f0a9eda7db026e12d4f09656f9254cddbb66ff9c0c01d8963dc1d73',
+    sha256 => '36a4147799e303a6f19cd8ff9fb52c2fc07a840d',
 };
 
 
@@ -61,7 +61,7 @@ sub update_nginx {
                 say "Homebrew Stable has a patch. Homebrew: .$patch Stable: .$stable->{patch}";
                     
                 $lines[$i]   = "  url 'http://nginx.org/download/nginx-$stable->{major}.$stable->{minor}.$stable->{patch}.tar.gz'\n";
-                $lines[$i+1] = "  sha256 '$stable->{sha256}'\n";
+                $lines[$i+1] = "  sha1 '$stable->{sha1}'\n";
             }
 
             if ($stable->{minor} > $minor) {
@@ -78,7 +78,7 @@ sub update_nginx {
                 say "Homebrew Devel has a patch. Homebrew: .$patch Devel: .$devel->{patch}";
 
                 $lines[$i]   = "    url 'http://nginx.org/download/nginx-$devel->{major}.$devel->{minor}.$devel->{patch}.tar.gz'\n";
-                $lines[$i+1] = "    sha256 '$devel->{sha256}'\n";
+                $lines[$i+1] = "    sha1 '$devel->{sha1}'\n";
             }
 
             if ($devel->{minor} > $minor) {
@@ -96,11 +96,11 @@ sub update_nginx {
 =cut
 
   url 'http://nginx.org/download/nginx-1.2.1.tar.gz'
-  sha256 '994ad97cbf6f7045f95ea9d6d401aad1e95766671e402c48af85aba5235a2dd7'
+  sha1 '4fb69411f6c3ebb5818005955a085e891e77b2d8'
 
   devel do
     url 'http://nginx.org/download/nginx-1.3.1.tar.gz'
-    sha256 '9b30a6f67f0a9eda7db026e12d4f09656f9254cddbb66ff9c0c01d8963dc1d73'
+    sha1 '36a4147799e303a6f19cd8ff9fb52c2fc07a840d'
   end
 
 =cut
